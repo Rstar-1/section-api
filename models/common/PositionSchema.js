@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const gallerySchema = new mongoose.Schema(
+const positionSchema = new mongoose.Schema(
   {
     sectionpath: {
       type: String,
@@ -24,6 +24,6 @@ const gallerySchema = new mongoose.Schema(
   }
 );
 
-// model gallery
-const gallery = new mongoose.model("gallery", gallerySchema);
-module.exports = gallery;
+// model position
+const position = new mongoose.model("position", positionSchema);
+module.exports = position;
