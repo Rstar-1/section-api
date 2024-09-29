@@ -54,18 +54,18 @@ exports.ponepaginationdata = async (req, res) => {
 };
 
 // Pone single data
-exports.ponesingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.ponesingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await pone.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await pone.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "ponesingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "ponesingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Pone update data
 exports.poneupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.poneupdatedata = async (req, res) => {
   }
 };
 
-// Pone status update data
+// Pone status data
 exports.ponestatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.ponestatusdata = async (req, res) => {
 
     //console.log(statususer, "ponestatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Pone Temp Delete data
+exports.ponetempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await pone.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "ponetempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

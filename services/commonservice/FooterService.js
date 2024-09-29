@@ -91,7 +91,7 @@ exports.footerupdatedata = async (req, res) => {
   }
 };
 
-// Footer status update data
+// Footer status data
 exports.footerstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

@@ -72,7 +72,21 @@ exports.apiupdatedata = async function (req, res) {
 
 exports.apistatusdata = async function (req, res) {
   try {
-    var users = await ApiService.apistatusdata(req, res);
+    var users = await apiService.apistatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.apitempdeletedata = async function (req, res) {
+  try {
+    var users = await apiService.apitempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

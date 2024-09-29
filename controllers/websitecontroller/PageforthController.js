@@ -42,19 +42,19 @@ exports.pforthpaginationdata = async function (req, res) {
   }
 };
 
-exports.pforthsingledata = async function (req, res) {
-  try {
-    var users = await pforthService.pforthsingledata(req, res);
+// exports.pforthsingledata = async function (req, res) {
+//   try {
+//     var users = await pforthService.pforthsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.pforthupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.pforthupdatedata = async function (req, res) {
 exports.pforthstatusdata = async function (req, res) {
   try {
     var users = await pforthService.pforthstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.pforthtempdeletedata = async function (req, res) {
+  try {
+    var users = await pforthService.pforthtempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

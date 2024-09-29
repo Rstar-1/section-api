@@ -91,7 +91,7 @@ exports.managementupdatedata = async (req, res) => {
   }
 };
 
-// Management status update data
+// Management status data
 exports.managementstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

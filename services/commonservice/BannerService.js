@@ -94,7 +94,7 @@ exports.bannerupdatedata = async (req, res) => {
   }
 };
 
-// Banner status update data
+// Banner status data
 exports.bannerstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

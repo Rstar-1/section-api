@@ -42,19 +42,19 @@ exports.psecondpaginationdata = async function (req, res) {
   }
 };
 
-exports.psecondsingledata = async function (req, res) {
-  try {
-    var users = await psecondService.psecondsingledata(req, res);
+// exports.psecondsingledata = async function (req, res) {
+//   try {
+//     var users = await psecondService.psecondsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.psecondupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.psecondupdatedata = async function (req, res) {
 exports.psecondstatusdata = async function (req, res) {
   try {
     var users = await psecondService.psecondstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.psecondtempdeletedata = async function (req, res) {
+  try {
+    var users = await psecondService.psecondtempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

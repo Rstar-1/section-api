@@ -54,18 +54,18 @@ exports.productpaginationdata = async (req, res) => {
 };
 
 // Product single data
-exports.productsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.productsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await product.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await product.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "productsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "productsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Product update data
 exports.productupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.productupdatedata = async (req, res) => {
   }
 };
 
-// Product status update data
+// Product status data
 exports.productstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.productstatusdata = async (req, res) => {
 
     //console.log(statususer, "productstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Product Temp Delete data
+exports.producttempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await product.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "producttempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

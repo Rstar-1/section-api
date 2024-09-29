@@ -91,7 +91,7 @@ exports.dashnumupdatedata = async (req, res) => {
   }
 };
 
-// DashNum status update data
+// DashNum status data
 exports.dashnumstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

@@ -42,19 +42,19 @@ exports.blogpaginationdata = async function (req, res) {
   }
 };
 
-exports.blogsingledata = async function (req, res) {
-  try {
-    var users = await blogService.blogsingledata(req, res);
+// exports.blogsingledata = async function (req, res) {
+//   try {
+//     var users = await blogService.blogsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.blogupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.blogupdatedata = async function (req, res) {
 exports.blogstatusdata = async function (req, res) {
   try {
     var users = await blogService.blogstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.blogtempdeletedata = async function (req, res) {
+  try {
+    var users = await blogService.blogtempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

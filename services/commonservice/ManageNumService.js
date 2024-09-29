@@ -91,7 +91,7 @@ exports.managenumupdatedata = async (req, res) => {
   }
 };
 
-// ManageNum status update data
+// ManageNum status data
 exports.managenumstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

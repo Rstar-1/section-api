@@ -91,7 +91,7 @@ exports.sidebarupdatedata = async (req, res) => {
   }
 };
 
-// Sidebar status update data
+// Sidebar status data
 exports.sidebarstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

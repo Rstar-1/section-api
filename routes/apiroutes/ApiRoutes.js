@@ -7,5 +7,6 @@ module.exports = function (app) {
   app.patch("/apisingledata/:id", Controller.ApiController.apisingledata);
   app.patch("/apiupdatedata/:id", Controller.ApiController.apiupdatedata);
   app.patch("/apistatusdata/:id", Controller.ApiController.apistatusdata);
+  app.patch("/apitempdeletedata/:id", Controller.ApiController.apitempdeletedata);
   app.delete("/apideletedata/:id", Controller.ApiController.apideletedata);
 };

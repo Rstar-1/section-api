@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/aboutpaginationdata",
     Controller.AboutController.aboutpaginationdata
   );
-  app.get(
-    "/aboutsingledata/:id",
-    Controller.AboutController.aboutsingledata
-  );
+  // app.get(
+  //   "/aboutsingledata/:id",
+  //   Controller.AboutController.aboutsingledata
+  // );
   app.patch(
     "/aboutupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/aboutstatusdata/:id",
     Controller.AboutController.aboutstatusdata
+  );
+  app.patch(
+    "/abouttempdeletedata/:id",
+    Controller.AboutController.abouttempdeletedata
   );
   app.delete(
     "/aboutdeletedata/:id",

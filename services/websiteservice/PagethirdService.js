@@ -54,18 +54,18 @@ exports.pthirdpaginationdata = async (req, res) => {
 };
 
 // Pthird single data
-exports.pthirdsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.pthirdsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await pthird.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await pthird.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "pthirdsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "pthirdsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Pthird update data
 exports.pthirdupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.pthirdupdatedata = async (req, res) => {
   }
 };
 
-// Pthird status update data
+// Pthird status data
 exports.pthirdstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.pthirdstatusdata = async (req, res) => {
 
     //console.log(statususer, "pthirdstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Pthird Temp Delete data
+exports.pthirdtempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await pthird.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "pthirdtempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

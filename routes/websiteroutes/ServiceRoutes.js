@@ -13,7 +13,7 @@ module.exports = function (app) {
   );
   app.get("/servicegetdata", Controller.ServiceController.servicegetdata);
   app.post("/servicepaginationdata", Controller.ServiceController.servicepaginationdata);
-  app.get("/servicesingledata/:id", Controller.ServiceController.servicesingledata);
+  // app.get("/servicesingledata/:id", Controller.ServiceController.servicesingledata);
   app.patch(
     "/serviceupdatedata/:id",
     fileUpload("picture", false),
@@ -21,5 +21,6 @@ module.exports = function (app) {
     Controller.ServiceController.serviceupdatedata
   );
   app.patch("/servicestatusdata/:id", Controller.ServiceController.servicestatusdata);
+  app.patch("/servicetempdeletedata/:id", Controller.ServiceController.servicetempdeletedata);
   app.delete("/servicedeletedata/:id", Controller.ServiceController.servicedeletedata);
 };

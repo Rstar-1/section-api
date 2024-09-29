@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/pfifthpaginationdata",
     Controller.PagefifthController.pfifthpaginationdata
   );
-  app.get(
-    "/pfifthsingledata/:id",
-    Controller.PagefifthController.pfifthsingledata
-  );
+  // app.get(
+  //   "/pfifthsingledata/:id",
+  //   Controller.PagefifthController.pfifthsingledata
+  // );
   app.patch(
     "/pfifthupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/pfifthstatusdata/:id",
     Controller.PagefifthController.pfifthstatusdata
+  );
+  app.patch(
+    "/pfifthtempdeletedata/:id",
+    Controller.PagefifthController.pfifthtempdeletedata
   );
   app.delete(
     "/pfifthdeletedata/:id",

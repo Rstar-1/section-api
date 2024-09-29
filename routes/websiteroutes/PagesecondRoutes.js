@@ -16,7 +16,7 @@ module.exports = function (app) {
     "/psecondpaginationdata",
     Controller.PagesecondController.psecondpaginationdata
   );
-  app.get("/psecondsingledata/:id", Controller.PagesecondController.psecondsingledata);
+  // app.get("/psecondsingledata/:id", Controller.PagesecondController.psecondsingledata);
   app.patch(
     "/psecondupdatedata/:id",
     fileUpload("picture", false),
@@ -24,6 +24,7 @@ module.exports = function (app) {
     Controller.PagesecondController.psecondupdatedata
   );
   app.patch("/psecondstatusdata/:id", Controller.PagesecondController.psecondstatusdata);
+  app.patch("/psecondtempdeletedata/:id", Controller.PagesecondController.psecondtempdeletedata);
   app.delete(
     "/pseconddeletedata/:id",
     Controller.PagesecondController.pseconddeletedata

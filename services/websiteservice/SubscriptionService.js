@@ -54,18 +54,18 @@ exports.subscriptionpaginationdata = async (req, res) => {
 };
 
 // Subscription single data
-exports.subscriptionsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.subscriptionsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await subscription.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await subscription.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "subscriptionsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "subscriptionsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Subscription update data
 exports.subscriptionupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.subscriptionupdatedata = async (req, res) => {
   }
 };
 
-// Subscription status update data
+// Subscription status data
 exports.subscriptionstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.subscriptionstatusdata = async (req, res) => {
 
     //console.log(statususer, "subscriptionstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Subscription Temp Delete data
+exports.subscriptiontempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await subscription.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "subscriptiontempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

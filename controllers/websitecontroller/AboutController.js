@@ -42,19 +42,19 @@ exports.aboutpaginationdata = async function (req, res) {
   }
 };
 
-exports.aboutsingledata = async function (req, res) {
-  try {
-    var users = await aboutService.aboutsingledata(req, res);
+// exports.aboutsingledata = async function (req, res) {
+//   try {
+//     var users = await aboutService.aboutsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.aboutupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.aboutupdatedata = async function (req, res) {
 exports.aboutstatusdata = async function (req, res) {
   try {
     var users = await aboutService.aboutstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.abouttempdeletedata = async function (req, res) {
+  try {
+    var users = await aboutService.abouttempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

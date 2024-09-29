@@ -54,18 +54,18 @@ exports.gallerypaginationdata = async (req, res) => {
 };
 
 // Gallery single data
-exports.gallerysingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.gallerysingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await gallery.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await gallery.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "gallerysingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "gallerysingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Gallery update data
 exports.galleryupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.galleryupdatedata = async (req, res) => {
   }
 };
 
-// Gallery status update data
+// Gallery status data
 exports.gallerystatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.gallerystatusdata = async (req, res) => {
 
     //console.log(statususer, "gallerystatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Gallery Temp Delete data
+exports.gallerytempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await gallery.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "gallerytempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

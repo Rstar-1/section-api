@@ -91,7 +91,7 @@ exports.navbarupdatedata = async (req, res) => {
   }
 };
 
-// Navbar status update data
+// Navbar status data
 exports.navbarstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

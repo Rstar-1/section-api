@@ -83,7 +83,7 @@ exports.apiupdatedata = async (req, res) => {
   }
 };
 
-// Api status update data
+// Api status data
 exports.apistatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -100,6 +100,28 @@ exports.apistatusdata = async (req, res) => {
 
     //console.log(statususer, "apistatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Api Temp Delete data
+exports.apitempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await api.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "apitempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

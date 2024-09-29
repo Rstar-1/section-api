@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/gallerypaginationdata",
     Controller.GalleryController.gallerypaginationdata
   );
-  app.get(
-    "/gallerysingledata/:id",
-    Controller.GalleryController.gallerysingledata
-  );
+  // app.get(
+  //   "/gallerysingledata/:id",
+  //   Controller.GalleryController.gallerysingledata
+  // );
   app.patch(
     "/galleryupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/gallerystatusdata/:id",
     Controller.GalleryController.gallerystatusdata
+  );
+  app.patch(
+    "/gallerytempdeletedata/:id",
+    Controller.GalleryController.gallerytempdeletedata
   );
   app.delete(
     "/gallerydeletedata/:id",

@@ -13,7 +13,7 @@ module.exports = function (app) {
   );
   app.get("/contactgetdata", Controller.ContactController.contactgetdata);
   app.post("/contactpaginationdata", Controller.ContactController.contactpaginationdata);
-  app.get("/contactsingledata/:id", Controller.ContactController.contactsingledata);
+  // app.get("/contactsingledata/:id", Controller.ContactController.contactsingledata);
   app.patch(
     "/contactupdatedata/:id",
     fileUpload("picture", false),
@@ -21,5 +21,6 @@ module.exports = function (app) {
     Controller.ContactController.contactupdatedata
   );
   app.patch("/contactstatusdata/:id", Controller.ContactController.contactstatusdata);
+  app.patch("/contacttempdeletedata/:id", Controller.ContactController.contacttempdeletedata);
   app.delete("/contactdeletedata/:id", Controller.ContactController.contactdeletedata);
 };

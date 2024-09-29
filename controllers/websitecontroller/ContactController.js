@@ -42,19 +42,19 @@ exports.contactpaginationdata = async function (req, res) {
   }
 };
 
-exports.contactsingledata = async function (req, res) {
-  try {
-    var users = await contactService.contactsingledata(req, res);
+// exports.contactsingledata = async function (req, res) {
+//   try {
+//     var users = await contactService.contactsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.contactupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.contactupdatedata = async function (req, res) {
 exports.contactstatusdata = async function (req, res) {
   try {
     var users = await contactService.contactstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.contacttempdeletedata = async function (req, res) {
+  try {
+    var users = await contactService.contacttempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

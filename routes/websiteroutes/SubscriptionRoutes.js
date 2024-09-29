@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/subscriptionpaginationdata",
     Controller.SubscriptionController.subscriptionpaginationdata
   );
-  app.get(
-    "/subscriptionsingledata/:id",
-    Controller.SubscriptionController.subscriptionsingledata
-  );
+  // app.get(
+  //   "/subscriptionsingledata/:id",
+  //   Controller.SubscriptionController.subscriptionsingledata
+  // );
   app.patch(
     "/subscriptionupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/subscriptionstatusdata/:id",
     Controller.SubscriptionController.subscriptionstatusdata
+  );
+  app.patch(
+    "/subscriptiontempdeletedata/:id",
+    Controller.SubscriptionController.subscriptiontempdeletedata
   );
   app.delete(
     "/subscriptiondeletedata/:id",

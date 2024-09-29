@@ -42,19 +42,19 @@ exports.homepaginationdata = async function (req, res) {
   }
 };
 
-exports.homesingledata = async function (req, res) {
-  try {
-    var users = await homeService.homesingledata(req, res);
+// exports.homesingledata = async function (req, res) {
+//   try {
+//     var users = await homeService.homesingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.homeupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.homeupdatedata = async function (req, res) {
 exports.homestatusdata = async function (req, res) {
   try {
     var users = await homeService.homestatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.hometempdeletedata = async function (req, res) {
+  try {
+    var users = await homeService.hometempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

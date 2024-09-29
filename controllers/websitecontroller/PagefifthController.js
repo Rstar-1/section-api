@@ -42,19 +42,19 @@ exports.pfifthpaginationdata = async function (req, res) {
   }
 };
 
-exports.pfifthsingledata = async function (req, res) {
-  try {
-    var users = await pfifthService.pfifthsingledata(req, res);
+// exports.pfifthsingledata = async function (req, res) {
+//   try {
+//     var users = await pfifthService.pfifthsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.pfifthupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.pfifthupdatedata = async function (req, res) {
 exports.pfifthstatusdata = async function (req, res) {
   try {
     var users = await pfifthService.pfifthstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.pfifthtempdeletedata = async function (req, res) {
+  try {
+    var users = await pfifthService.pfifthtempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

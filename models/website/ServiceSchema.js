@@ -10,6 +10,18 @@ const serviceSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    category: {
+      type: String,
+      required: true,
+    },
+    sectionId: {
+      type: String,
+      required: true,
+    },
+    bgcolor: {
+      type: String,
+      required: true,
+    },
     picture: {
       type: String,
       required: true,
@@ -17,6 +29,10 @@ const serviceSchema = new mongoose.Schema(
     status: {
       type: Boolean,
       default: true,
+    },
+    isDeleted: {
+      type: Boolean,
+      default: false,
     },
   },
   {

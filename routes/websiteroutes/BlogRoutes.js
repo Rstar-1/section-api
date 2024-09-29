@@ -16,7 +16,7 @@ module.exports = function (app) {
     "/blogpaginationdata",
     Controller.BlogController.blogpaginationdata
   );
-  app.get("/blogsingledata/:id", Controller.BlogController.blogsingledata);
+  // app.get("/blogsingledata/:id", Controller.BlogController.blogsingledata);
   app.patch(
     "/blogupdatedata/:id",
     fileUpload("picture", false),
@@ -24,6 +24,7 @@ module.exports = function (app) {
     Controller.BlogController.blogupdatedata
   );
   app.patch("/blogstatusdata/:id", Controller.BlogController.blogstatusdata);
+  app.patch("/blogtempdeletedata/:id", Controller.BlogController.blogtempdeletedata);
   app.delete(
     "/blogdeletedata/:id",
     Controller.BlogController.blogdeletedata

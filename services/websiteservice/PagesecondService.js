@@ -54,18 +54,18 @@ exports.psecondpaginationdata = async (req, res) => {
 };
 
 // Psecond single data
-exports.psecondsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.psecondsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await psecond.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await psecond.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "psecondsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "psecondsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Psecond update data
 exports.psecondupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.psecondupdatedata = async (req, res) => {
   }
 };
 
-// Psecond status update data
+// Psecond status data
 exports.psecondstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.psecondstatusdata = async (req, res) => {
 
     //console.log(statususer, "psecondstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Psecond Temp Delete data
+exports.psecondtempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await psecond.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "psecondtempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

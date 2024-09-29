@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/pforthpaginationdata",
     Controller.PageforthController.pforthpaginationdata
   );
-  app.get(
-    "/pforthsingledata/:id",
-    Controller.PageforthController.pforthsingledata
-  );
+  // app.get(
+  //   "/pforthsingledata/:id",
+  //   Controller.PageforthController.pforthsingledata
+  // );
   app.patch(
     "/pforthupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/pforthstatusdata/:id",
     Controller.PageforthController.pforthstatusdata
+  );
+  app.patch(
+    "/pforthtempdeletedata/:id",
+    Controller.PageforthController.pforthtempdeletedata
   );
   app.delete(
     "/pforthdeletedata/:id",

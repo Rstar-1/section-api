@@ -16,10 +16,10 @@ module.exports = function (app) {
     "/pthirdpaginationdata",
     Controller.PagethirdController.pthirdpaginationdata
   );
-  app.get(
-    "/pthirdsingledata/:id",
-    Controller.PagethirdController.pthirdsingledata
-  );
+  // app.get(
+  //   "/pthirdsingledata/:id",
+  //   Controller.PagethirdController.pthirdsingledata
+  // );
   app.patch(
     "/pthirdupdatedata/:id",
     fileUpload("picture", false),
@@ -29,6 +29,10 @@ module.exports = function (app) {
   app.patch(
     "/pthirdstatusdata/:id",
     Controller.PagethirdController.pthirdstatusdata
+  );
+  app.patch(
+    "/pthirdtempdeletedata/:id",
+    Controller.PagethirdController.pthirdtempdeletedata
   );
   app.delete(
     "/pthirddeletedata/:id",

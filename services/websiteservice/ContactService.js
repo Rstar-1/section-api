@@ -54,18 +54,18 @@ exports.contactpaginationdata = async (req, res) => {
 };
 
 // Contact single data
-exports.contactsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.contactsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await contact.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await contact.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "contactsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "contactsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Contact update data
 exports.contactupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.contactupdatedata = async (req, res) => {
   }
 };
 
-// Contact status update data
+// Contact status data
 exports.contactstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.contactstatusdata = async (req, res) => {
 
     //console.log(statususer, "contactstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Contact Temp Delete data
+exports.contacttempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await contact.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "contacttempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

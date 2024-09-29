@@ -54,18 +54,18 @@ exports.pforthpaginationdata = async (req, res) => {
 };
 
 // Pforth single data
-exports.pforthsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.pforthsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await pforth.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await pforth.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "pforthsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "pforthsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Pforth update data
 exports.pforthupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.pforthupdatedata = async (req, res) => {
   }
 };
 
-// Pforth status update data
+// Pforth status data
 exports.pforthstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.pforthstatusdata = async (req, res) => {
 
     //console.log(statususer, "pforthstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Pforth Temp Delete data
+exports.pforthtempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await pforth.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "pforthtempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

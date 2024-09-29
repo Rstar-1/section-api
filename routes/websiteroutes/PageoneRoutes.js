@@ -19,10 +19,10 @@ module.exports = function (app) {
     "/ponepaginationdata",
     Controller.PageoneController.ponepaginationdata
   );
-  app.get(
-    "/ponesingledata/:id",
-    Controller.PageoneController.ponesingledata
-  );
+  // app.get(
+  //   "/ponesingledata/:id",
+  //   Controller.PageoneController.ponesingledata
+  // );
   app.patch(
     "/poneupdatedata/:id",
     fileUpload("picture", false),
@@ -32,6 +32,10 @@ module.exports = function (app) {
   app.patch(
     "/ponestatusdata/:id",
     Controller.PageoneController.ponestatusdata
+  );
+  app.patch(
+    "/ponetempdeletedata/:id",
+    Controller.PageoneController.ponetempdeletedata
   );
   app.delete(
     "/ponedeletedata/:id",

@@ -42,19 +42,19 @@ exports.ponepaginationdata = async function (req, res) {
   }
 };
 
-exports.ponesingledata = async function (req, res) {
-  try {
-    var users = await poneService.ponesingledata(req, res);
+// exports.ponesingledata = async function (req, res) {
+//   try {
+//     var users = await poneService.ponesingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.poneupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.poneupdatedata = async function (req, res) {
 exports.ponestatusdata = async function (req, res) {
   try {
     var users = await poneService.ponestatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.ponetempdeletedata = async function (req, res) {
+  try {
+    var users = await poneService.ponetempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

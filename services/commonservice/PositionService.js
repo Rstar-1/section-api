@@ -91,7 +91,7 @@ exports.positionupdatedata = async (req, res) => {
   }
 };
 
-// Position status update data
+// Position status data
 exports.positionstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

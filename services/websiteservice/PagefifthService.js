@@ -54,18 +54,18 @@ exports.pfifthpaginationdata = async (req, res) => {
 };
 
 // Pfifth single data
-exports.pfifthsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.pfifthsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await pfifth.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await pfifth.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "pfifthsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "pfifthsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Pfifth update data
 exports.pfifthupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.pfifthupdatedata = async (req, res) => {
   }
 };
 
-// Pfifth status update data
+// Pfifth status data
 exports.pfifthstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.pfifthstatusdata = async (req, res) => {
 
     //console.log(statususer, "pfifthstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Pfifth Temp Delete data
+exports.pfifthtempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await pfifth.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "pfifthtempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

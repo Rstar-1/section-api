@@ -42,19 +42,19 @@ exports.productpaginationdata = async function (req, res) {
   }
 };
 
-exports.productsingledata = async function (req, res) {
-  try {
-    var users = await productService.productsingledata(req, res);
+// exports.productsingledata = async function (req, res) {
+//   try {
+//     var users = await productService.productsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.productupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.productupdatedata = async function (req, res) {
 exports.productstatusdata = async function (req, res) {
   try {
     var users = await productService.productstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.producttempdeletedata = async function (req, res) {
+  try {
+    var users = await productService.producttempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

@@ -13,7 +13,7 @@ module.exports = function (app) {
   );
   app.get("/homegetdata", Controller.HomeController.homegetdata);
   app.post("/homepaginationdata", Controller.HomeController.homepaginationdata);
-  app.get("/homesingledata/:id", Controller.HomeController.homesingledata);
+  // app.get("/homesingledata/:id", Controller.HomeController.homesingledata);
   app.patch(
     "/homeupdatedata/:id",
     fileUpload("picture", false),
@@ -21,5 +21,6 @@ module.exports = function (app) {
     Controller.HomeController.homeupdatedata
   );
   app.patch("/homestatusdata/:id", Controller.HomeController.homestatusdata);
+  app.patch("/hometempdeletedata/:id", Controller.HomeController.hometempdeletedata);
   app.delete("/homedeletedata/:id", Controller.HomeController.homedeletedata);
 };

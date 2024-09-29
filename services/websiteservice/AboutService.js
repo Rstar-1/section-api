@@ -54,18 +54,18 @@ exports.aboutpaginationdata = async (req, res) => {
 };
 
 // About single data
-exports.aboutsingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.aboutsingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await about.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await about.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "aboutsingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "aboutsingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // About update data
 exports.aboutupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.aboutupdatedata = async (req, res) => {
   }
 };
 
-// About status update data
+// About status data
 exports.aboutstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.aboutstatusdata = async (req, res) => {
 
     //console.log(statususer, "aboutstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// About Temp Delete data
+exports.abouttempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await about.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "abouttempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

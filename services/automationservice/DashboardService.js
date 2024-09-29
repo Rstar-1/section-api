@@ -91,7 +91,7 @@ exports.dashboardupdatedata = async (req, res) => {
   }
 };
 
-// Dashboard status update data
+// Dashboard status data
 exports.dashboardstatusdata = async (req, res) => {
   try {
     const { id } = req.params;

@@ -54,18 +54,18 @@ exports.homepaginationdata = async (req, res) => {
 };
 
 // Home single data
-exports.homesingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.homesingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await home.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await home.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "homesingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "homesingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Home update data
 exports.homeupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.homeupdatedata = async (req, res) => {
   }
 };
 
-// Home status update data
+// Home status data
 exports.homestatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.homestatusdata = async (req, res) => {
 
     //console.log(statususer, "homestatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Home Temp Delete data
+exports.hometempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await home.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "hometempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

@@ -42,19 +42,19 @@ exports.subscriptionpaginationdata = async function (req, res) {
   }
 };
 
-exports.subscriptionsingledata = async function (req, res) {
-  try {
-    var users = await subscriptionService.subscriptionsingledata(req, res);
+// exports.subscriptionsingledata = async function (req, res) {
+//   try {
+//     var users = await subscriptionService.subscriptionsingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.subscriptionupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.subscriptionupdatedata = async function (req, res) {
 exports.subscriptionstatusdata = async function (req, res) {
   try {
     var users = await subscriptionService.subscriptionstatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.subscriptiontempdeletedata = async function (req, res) {
+  try {
+    var users = await subscriptionService.subscriptiontempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,

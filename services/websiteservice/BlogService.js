@@ -54,18 +54,18 @@ exports.blogspaginationdata = async (req, res) => {
 };
 
 // Blogs single data
-exports.blogssingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.blogssingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await blogs.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await blogs.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "blogssingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "blogssingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Blogs update data
 exports.blogsupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.blogsupdatedata = async (req, res) => {
   }
 };
 
-// Blogs status update data
+// Blogs status data
 exports.blogsstatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.blogsstatusdata = async (req, res) => {
 
     //console.log(statususer, "blogsstatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Blogs Temp Delete data
+exports.blogtempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await blog.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "blogtempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

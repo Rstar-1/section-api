@@ -54,18 +54,18 @@ exports.servicepaginationdata = async (req, res) => {
 };
 
 // Service single data
-exports.servicesingledata = async (req, res) => {
-  try {
-    const { id } = req.params;
+// exports.servicesingledata = async (req, res) => {
+//   try {
+//     const { id } = req.params;
 
-    const userindividual = await service.findById({ _id: id });
-    res.status(201).json(userindividual);
+//     const userindividual = await service.findById({ _id: id });
+//     res.status(201).json(userindividual);
 
-    //console.log(userindividual, "servicesingledata");
-  } catch (error) {
-    res.status(422).json(error);
-  }
-};
+//     //console.log(userindividual, "servicesingledata");
+//   } catch (error) {
+//     res.status(422).json(error);
+//   }
+// };
 
 // Service update data
 exports.serviceupdatedata = async (req, res) => {
@@ -91,7 +91,7 @@ exports.serviceupdatedata = async (req, res) => {
   }
 };
 
-// Service status update data
+// Service status data
 exports.servicestatusdata = async (req, res) => {
   try {
     const { id } = req.params;
@@ -108,6 +108,28 @@ exports.servicestatusdata = async (req, res) => {
 
     //console.log(statususer, "servicestatusdata");
     res.status(201).json(statususer);
+  } catch (error) {
+    res.status(422).json(error);
+  }
+};
+
+// Service Temp Delete data
+exports.servicetempdeletedata = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const tempdeleteuser = await service.findByIdAndUpdate(
+      id,
+      {
+        isDeleted: req.body.isDeleted,
+      },
+      {
+        new: true,
+      }
+    );
+
+    //console.log(tempdeleteuser, "servicetempdeletedata");
+    res.status(201).json(tempdeleteuser);
   } catch (error) {
     res.status(422).json(error);
   }

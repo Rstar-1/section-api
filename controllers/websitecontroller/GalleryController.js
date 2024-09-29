@@ -42,19 +42,19 @@ exports.gallerypaginationdata = async function (req, res) {
   }
 };
 
-exports.gallerysingledata = async function (req, res) {
-  try {
-    var users = await galleryService.gallerysingledata(req, res);
+// exports.gallerysingledata = async function (req, res) {
+//   try {
+//     var users = await galleryService.gallerysingledata(req, res);
 
-    return res.status(200).json({
-      status: 200,
-      data: users,
-      message: "Record data successfully",
-    });
-  } catch (error) {
-    error;
-  }
-};
+//     return res.status(200).json({
+//       status: 200,
+//       data: users,
+//       message: "Record data successfully",
+//     });
+//   } catch (error) {
+//     error;
+//   }
+// };
 
 exports.galleryupdatedata = async function (req, res) {
   try {
@@ -73,6 +73,20 @@ exports.galleryupdatedata = async function (req, res) {
 exports.gallerystatusdata = async function (req, res) {
   try {
     var users = await galleryService.gallerystatusdata(req, res);
+
+    return res.status(200).json({
+      status: 200,
+      data: users,
+      message: "Record data successfully",
+    });
+  } catch (error) {
+    error;
+  }
+};
+
+exports.gallerytempdeletedata = async function (req, res) {
+  try {
+    var users = await galleryService.gallerytempdeletedata(req, res);
 
     return res.status(200).json({
       status: 200,
