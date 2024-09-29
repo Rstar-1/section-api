@@ -31,6 +31,10 @@ const PageforthRoute = require("./websiteroutes/PageforthRoutes");
 const PagefifthRoute = require("./websiteroutes/PagefifthRoutes");
 // ----------------------------- Website ----------------------------- //
 
+// ----------------------------- API ----------------------------- //
+const ApiRoute = require("./apiroutes/ApiRoutes");
+// ----------------------------- API ----------------------------- //
+
 module.exports = function(app) {
  app.use("/api", router)
  DashboardRoute(router);
@@ -54,4 +58,5 @@ module.exports = function(app) {
  PagethirdRoute(router);
  PageforthRoute(router);
  PagefifthRoute(router);
+ ApiRoute(router);
 }

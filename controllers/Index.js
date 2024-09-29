@@ -29,6 +29,10 @@ const ServiceController = require("../controllers/websitecontroller/ServiceContr
 const SubscriptionController = require("../controllers/websitecontroller/SubscriptionController.js");
 // -------------------------------------------- Website -------------------------------------------- //
 
+// -------------------------------------------- API -------------------------------------------- //
+const ApiController = require("../controllers/apicontroller/ApiController.js");
+// -------------------------------------------- API -------------------------------------------- //
+
 module.exports = {
   DashboardController,
   ManagementController,
@@ -52,4 +56,5 @@ module.exports = {
   ProductController,
   ServiceController,
   SubscriptionController,
+  ApiController,
 };
