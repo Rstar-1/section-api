@@ -2,11 +2,14 @@ const pfifth = require("../../models/website/PagefifthSchema");
 
 // Pfifth add
 exports.pfifthadddata = async (req, res) => {
-  const { sectionpath, sectionname } = req.body;
+  const { sectionpath, sectionname, category, sectionId, bgcolor } = req.body;
   try {
     const adduser = new pfifth({
       sectionpath,
       sectionname,
+      category,
+      sectionId,
+      bgcolor,
       picture: req.body.picture,
     });
 
@@ -77,6 +80,9 @@ exports.pfifthupdatedata = async (req, res) => {
       {
         sectionpath: req.body.sectionpath,
         sectionname: req.body.sectionname,
+        category: req.body.category,
+        sectionId: req.body.sectionId,
+        bgcolor: req.body.bgcolor,
         picture: req.body.picture,
       },
       {
